@@ -13,4 +13,5 @@ from Wall import *
 
 # PLAY THA GAME
 game = Game()
+print ("Game is closed with 'Esc'")
 game.main()
