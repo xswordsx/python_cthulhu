@@ -1,15 +1,31 @@
 # PynSource Version 1.1
 {'type':'meta', 'info1':'Lorem ipsum dolor sit amet, consectetur adipiscing elit is latin.'}
-{'type':'umlshape', 'id':'Stats', 'x':403, 'y':422, 'width':74, 'height':157, 'attrs':'max_hp|health|stregth|level|xp', 'meths':'__init__'}
-{'type':'umlshape', 'id':'Wall', 'x':708, 'y':165, 'width':74, 'height':141, 'attrs':'pos|image|rect', 'meths':'__init__|update'}
-{'type':'umlshape', 'id':'NPC', 'x':300, 'y':216, 'width':90, 'height':189, 'attrs':'pos|counter|image|image_path|rect', 'meths':'__init__|update_img|update'}
-{'type':'umlshape', 'id':'Player', 'x':300, 'y':16, 'width':90, 'height':189, 'attrs':'image_path|way|image|rect|counter', 'meths':'__init__|update_img|update'}
-{'type':'umlshape', 'id':'Game', 'x':503, 'y':261, 'width':114, 'height':189, 'attrs':'player_sprite|tiles|walls|npc|has_player|running', 'meths':'__init__|main'}
-{'type':'umlshape', 'id':'Tile', 'x':708, 'y':15, 'width':74, 'height':141, 'attrs':'pos|image|rect', 'meths':'__init__|update'}
-{'type':'umlshape', 'id':'pygame.sprite.Sprite', 'x':460, 'y':20, 'width':230, 'height':31, 'attrs':'', 'meths':''}
-{'type':'umlshape', 'id':'object', 'x':575, 'y':475, 'width':76, 'height':31, 'attrs':'', 'meths':''}
-{'type':'edge', 'id':'Wall_to_pygame.sprite.Sprite', 'source':'Wall', 'target':'pygame.sprite.Sprite', 'uml_edge_type':'generalisation'}
+{'type':'umlshape', 'id':'Game', 'x':667, 'y':52, 'width':114, 'height':269, 'attrs':'player_sprite|tiles|walls|npc|player|has_player|running|image_map|screen_size|screen', 'meths':'__init__|update|main'}
+{'type':'umlshape', 'id':'object', 'x':519, 'y':292, 'width':76, 'height':31, 'attrs':'', 'meths':''}
+{'type':'umlshape', 'id':'NPC', 'x':219, 'y':28, 'width':90, 'height':205, 'attrs':'pos|counter|image|image_path|rect|game', 'meths':'__init__|update_img|update'}
+{'type':'umlshape', 'id':'pygame.sprite.Sprite', 'x':406, 'y':25, 'width':230, 'height':31, 'attrs':'', 'meths':''}
+{'type':'umlshape', 'id':'Player', 'x':219, 'y':283, 'width':90, 'height':205, 'attrs':'image_path|way|image|rect|game|counter', 'meths':'__init__|update_img|update'}
+{'type':'umlshape', 'id':'Stats', 'x':341, 'y':191, 'width':74, 'height':157, 'attrs':'max_hp|health|stregth|level|xp', 'meths':'__init__'}
+{'type':'umlshape', 'id':'Tile', 'x':558, 'y':129, 'width':74, 'height':157, 'attrs':'pos|image|rect|game', 'meths':'__init__|update'}
+{'type':'umlshape', 'id':'Wall', 'x':450, 'y':129, 'width':74, 'height':157, 'attrs':'pos|image|rect|game', 'meths':'__init__|update'}
+{'type':'edge', 'id':'Game_to_object', 'source':'Game', 'target':'object', 'uml_edge_type':'generalisation'}
+{'type':'edge', 'id':'Game_to_object', 'source':'Game', 'target':'object', 'uml_edge_type':'generalisation'}
+{'type':'edge', 'id':'NPC_to_pygame.sprite.Sprite', 'source':'NPC', 'target':'pygame.sprite.Sprite', 'uml_edge_type':'generalisation'}
+{'type':'edge', 'id':'Game_to_object', 'source':'Game', 'target':'object', 'uml_edge_type':'generalisation'}
 {'type':'edge', 'id':'NPC_to_pygame.sprite.Sprite', 'source':'NPC', 'target':'pygame.sprite.Sprite', 'uml_edge_type':'generalisation'}
 {'type':'edge', 'id':'Player_to_pygame.sprite.Sprite', 'source':'Player', 'target':'pygame.sprite.Sprite', 'uml_edge_type':'generalisation'}
 {'type':'edge', 'id':'Game_to_object', 'source':'Game', 'target':'object', 'uml_edge_type':'generalisation'}
+{'type':'edge', 'id':'NPC_to_pygame.sprite.Sprite', 'source':'NPC', 'target':'pygame.sprite.Sprite', 'uml_edge_type':'generalisation'}
+{'type':'edge', 'id':'Player_to_pygame.sprite.Sprite', 'source':'Player', 'target':'pygame.sprite.Sprite', 'uml_edge_type':'generalisation'}
+{'type':'edge', 'id':'Game_to_object', 'source':'Game', 'target':'object', 'uml_edge_type':'generalisation'}
+{'type':'edge', 'id':'NPC_to_pygame.sprite.Sprite', 'source':'NPC', 'target':'pygame.sprite.Sprite', 'uml_edge_type':'generalisation'}
+{'type':'edge', 'id':'Player_to_pygame.sprite.Sprite', 'source':'Player', 'target':'pygame.sprite.Sprite', 'uml_edge_type':'generalisation'}
+{'type':'edge', 'id':'Game_to_object', 'source':'Game', 'target':'object', 'uml_edge_type':'generalisation'}
+{'type':'edge', 'id':'NPC_to_pygame.sprite.Sprite', 'source':'NPC', 'target':'pygame.sprite.Sprite', 'uml_edge_type':'generalisation'}
+{'type':'edge', 'id':'Player_to_pygame.sprite.Sprite', 'source':'Player', 'target':'pygame.sprite.Sprite', 'uml_edge_type':'generalisation'}
 {'type':'edge', 'id':'Tile_to_pygame.sprite.Sprite', 'source':'Tile', 'target':'pygame.sprite.Sprite', 'uml_edge_type':'generalisation'}
+{'type':'edge', 'id':'Game_to_object', 'source':'Game', 'target':'object', 'uml_edge_type':'generalisation'}
+{'type':'edge', 'id':'NPC_to_pygame.sprite.Sprite', 'source':'NPC', 'target':'pygame.sprite.Sprite', 'uml_edge_type':'generalisation'}
+{'type':'edge', 'id':'Player_to_pygame.sprite.Sprite', 'source':'Player', 'target':'pygame.sprite.Sprite', 'uml_edge_type':'generalisation'}
+{'type':'edge', 'id':'Tile_to_pygame.sprite.Sprite', 'source':'Tile', 'target':'pygame.sprite.Sprite', 'uml_edge_type':'generalisation'}
+{'type':'edge', 'id':'Wall_to_pygame.sprite.Sprite', 'source':'Wall', 'target':'pygame.sprite.Sprite', 'uml_edge_type':'generalisation'}
