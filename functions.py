@@ -9,11 +9,11 @@ from Player import Player
 
 
 # Map-Generator
-def generate_map(image_map, game):
-    for j in range(image_map.get_height()):
-        for i in range(image_map.get_width()):
+def generate_map(game):
+    for j in range(game.image_map.get_height()):
+        for i in range(game.image_map.get_width()):
 
-            pixel = image_map.get_at((i, j))
+            pixel = game.image_map.get_at((i, j))
             pos = [(i * BLOCK_SIZE), (j * BLOCK_SIZE)]
 
             if pixel == GREEN:

@@ -12,6 +12,5 @@ from Tile import *
 from Wall import *
 
 # PLAY THA GAME
-screen = pygame.display.set_mode((800, 600))
 game = Game()
-game.main(screen)
+game.main()

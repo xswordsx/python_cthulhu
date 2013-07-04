@@ -17,13 +17,16 @@ class Game(object):
         self.has_player = False
         self.running = False
 
-    def main(self, screen):
+    def main(self):
         # Science starts right about here
         pygame.init()
-        self.screen = screen
-        map_bmp = pygame.image.load(MEDIA_PATH + "/level/01.bmp")
+        self.image_map = pygame.image.load(MEDIA_PATH + "/level/01.bmp")
+        self.screen_size = self.image_map.get_size()
+        self.screen_size = (self.screen_size[0] * BLOCK_SIZE,
+                            self.screen_size[1] * BLOCK_SIZE)
+        self.screen = pygame.display.set_mode(self.screen_size)
 
-        generate_map(map_bmp, self)
+        generate_map(self)
 
         if self.has_player is True:
             self.running = True
@@ -45,8 +48,7 @@ class Game(object):
             self.player.update(dt, self.walls)
             for cell in pygame.sprite.spritecollide(self.player,
                                                     self.npc, False):
-                if cell is True:
-                    self.running = False
+                pass  # <-----Insert Collide-with-NPC commands here
             #self.player.update(dt, self.npc)
             pygame.display.update()
         pygame.quit()
