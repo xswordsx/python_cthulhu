@@ -24,7 +24,8 @@ class Game(object):
         self.screen_size = (self.screen_size[0] * BLOCK_SIZE,
                             self.screen_size[1] * BLOCK_SIZE)
 
-        self.screen = pygame.display.set_mode(self.screen_size, pygame.NOFRAME)
+        self.screen = pygame.display.set_mode(self.screen_size)
+                                # Add pygame.NOFRAME to top statement
         self.screen.fill(BG_COLOR)
 
         generate_map(self)
@@ -54,14 +55,16 @@ class Game(object):
         tick_time = 20
 
         for i in range(40):
+            clock.tick(tick_time)
+
             img1.set_alpha(i)
 
             self.screen.blit(img1, (190, -10))
 
             pygame.display.update()
-            clock.tick(tick_time)
 
         for i in range(100):
+            clock.tick(tick_time)
             img1.set_alpha(i + 40)
             img2.set_alpha(i)
 
@@ -69,7 +72,6 @@ class Game(object):
             self.screen.blit(img2, (0, 490))
 
             pygame.display.update()
-            clock.tick(tick_time)
 
         self.screen.fill(PLAYER)
 
@@ -80,7 +82,29 @@ class Game(object):
             pygame.display.update()
 
             clock.tick(tick_time)
-        clock.tick(1)
+
+        pygame.font.init()
+        waiting_font = pygame.font.SysFont("monospace", 12)
+        label = waiting_font.render('Press SPACE to continue...', 1, (0, 0, 0))
+        self.screen.blit(label, (310, 580))
+        pygame.display.update()
+
+        flag = 0
+        runny = True
+        while runny:
+
+            for event in pygame.event.get():
+
+                if event.type == pygame.QUIT:
+                    pygame.quit()
+                    runny = False
+
+                if event.type == pygame.KEYDOWN:
+                    if event.unicode == " ":
+                        flag = 1
+
+            if flag:
+                runny = False
 
     def main(self):
         # Science starts right about here
