@@ -6,11 +6,14 @@ MOVEMENT = 3
 FPS_MAX = 60
 BG_COLOR = (255, 255, 255)
 BLOCK_SIZE = 32
-NPC_TYPES = 1
+
+MAX_LEVEL = 1
+NPC_TYPES = 3
 
 MEDIA_PATH = "data"
 PLAYER_PATH = "/player"
 
+# Map-generation color-code
 GREEN = (100, 200, 0)
 BLUE = (5, 120, 155)
 GREY = (145, 145, 145)
