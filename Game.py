@@ -50,13 +50,16 @@ class Game(object):
         img3 = pygame.image.load('misc/title2.gif')
         img3 = img3.convert()
 
+        clock = pygame.time.Clock()
+        tick_time = 20
+
         for i in range(40):
             img1.set_alpha(i)
 
             self.screen.blit(img1, (190, -10))
 
             pygame.display.update()
-            time.sleep(0.06)
+            clock.tick(tick_time)
 
         for i in range(100):
             img1.set_alpha(i + 40)
@@ -66,7 +69,7 @@ class Game(object):
             self.screen.blit(img2, (0, 490))
 
             pygame.display.update()
-            time.sleep(0.06)
+            clock.tick(tick_time)
 
         self.screen.fill(PLAYER)
 
@@ -76,7 +79,8 @@ class Game(object):
             self.screen.blit(img3, (0, 0))
             pygame.display.update()
 
-            time.sleep(0.1)
+            clock.tick(tick_time)
+        clock.tick(1)
 
     def main(self):
         # Science starts right about here
