@@ -1,4 +1,5 @@
 import pygame
+import dumbmenu as menu
 
 from constants import *
 
@@ -32,17 +33,17 @@ def generate_map(game):
             if pixel == GREEN:
                 t = Tile(pos[0], pos[1], tile_grass, game)
 
-            if pixel == GREY:
+            elif pixel == GREY:
                 t = Wall(pos[0], pos[1], tile_wall, game)
 
-            if pixel == BLUE:
+            elif pixel == BLUE:
                 t = Wall(pos[0], pos[1], tile_water, game)
 
-            if pixel == BLACK:
+            elif pixel == BLACK:
                 t = Tile(pos[0], pos[1], tile_grass, game)
                 t = NPC(pos[0], pos[1], game)
 
-            if pixel == PLAYER:
+            elif pixel == PLAYER:
                 if game.has_player is False:
                     game.player = Player(pos, game, game.player_sprite)
                     game.has_player = True
@@ -50,3 +51,22 @@ def generate_map(game):
                     print(SPAWN_POINT_EXISTS)
 
                 t = Tile(pos[0], pos[1], tile_grass, game)
+            else:
+                t = Tile(pos[0], pos[1], tile_grass, game)
+
+
+def npc_collide(game):
+
+    text_bg = pygame.Surface((game.screen_size[0], TEXT_BG_HEIGHT))
+    text_bg.fill(BG_COLOR)
+    text_bg.set_alpha(BG_ALPHA)
+
+    menu_list = ['Attack', 'Flee in Terror']
+    game.screen.blit(text_bg, (0, game.screen_size[1] - TEXT_BG_HEIGHT))
+
+    dm = menu.dumbmenu(game.screen, menu_list, 60,
+                       game.screen_size[1] - TEXT_BG_HEIGHT,
+                       'misc/coders_crux.ttf', 48, 2, BLACK, BLACK)
+
+    if dm == 1:
+        game.running = False  # Python-friendly

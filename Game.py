@@ -37,7 +37,7 @@ class Game(object):
         self.player.update(dt, self.walls)
         for cell in pygame.sprite.spritecollide(self.player,
                                                 self.npc, False):
-            pass  # <-----Insert Collide-with-NPC commands here
+            npc_collide(self)  # <-----Insert Collide-with-NPC commands here
         pygame.display.update()
 
     def loading_screen(self):
@@ -72,7 +72,7 @@ class Game(object):
 
             pygame.display.update()
 
-        self.screen.fill(PLAYER)
+        self.screen.fill(BG_COLOR)
 
         for i in range(100):
             img3.set_alpha(i)
@@ -80,12 +80,11 @@ class Game(object):
             self.screen.blit(img3, (0, 0))
             pygame.display.update()
 
-            clock.tick(tick_time)
+            clock.tick(tick_time - 0.01)
 
         pygame.font.init()
-        waiting_font = pygame.font.SysFont("monospace", 12)
-        label = waiting_font.render('Press SPACE to continue...', 1, (0, 0, 0))
-        self.screen.blit(label, (310, 580))
+        label = BIT_FONT.render('Press SPACE to continue...', 0, (0, 0, 0))
+        self.screen.blit(label, (290, 580))
         pygame.display.update()
 
         flag = 0
@@ -118,7 +117,7 @@ class Game(object):
         dt = clock.tick(30)
         dt = dt / 1000.
         #Load some sweet, sweet credits
-        self.loading_screen()
+        #self.loading_screen()
 
         while self.running:
         # Main Loop

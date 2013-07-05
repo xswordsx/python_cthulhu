@@ -4,7 +4,7 @@ import random
 import re
 import os
 # Import .py files
-from constants import *
+# from constants import *
 from Game import *
 from NPC import *
 from Player import *

@@ -6,6 +6,11 @@ MOVEMENT = 3
 FPS_MAX = 60
 BG_COLOR = (255, 255, 255)
 BLOCK_SIZE = 32
+TEXT_BG_HEIGHT = 120
+BG_ALPHA = 90
+
+pygame.font.init()
+BIT_FONT = pygame.font.Font('misc/coders_crux.ttf', 24)
 
 MAX_LEVEL = 1
 NPC_TYPES = 3
