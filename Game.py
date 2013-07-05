@@ -117,7 +117,7 @@ class Game(object):
         dt = clock.tick(30)
         dt = dt / 1000.
         #Load some sweet, sweet credits
-        #self.loading_screen()
+        self.loading_screen()
 
         npc_collide(self, True)
 

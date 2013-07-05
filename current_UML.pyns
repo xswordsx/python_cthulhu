@@ -1,13 +1,13 @@
 # PynSource Version 1.1
 {'type':'meta', 'info1':'Lorem ipsum dolor sit amet, consectetur adipiscing elit is latin.'}
-{'type':'umlshape', 'id':'Game', 'x':667, 'y':52, 'width':114, 'height':269, 'attrs':'player_sprite|tiles|walls|npc|player|has_player|running|image_map|screen_size|screen', 'meths':'__init__|update|main'}
-{'type':'umlshape', 'id':'object', 'x':519, 'y':292, 'width':76, 'height':31, 'attrs':'', 'meths':''}
-{'type':'umlshape', 'id':'NPC', 'x':219, 'y':28, 'width':90, 'height':205, 'attrs':'pos|counter|image|image_path|rect|game', 'meths':'__init__|update_img|update'}
-{'type':'umlshape', 'id':'pygame.sprite.Sprite', 'x':406, 'y':25, 'width':230, 'height':31, 'attrs':'', 'meths':''}
-{'type':'umlshape', 'id':'Player', 'x':219, 'y':283, 'width':90, 'height':205, 'attrs':'image_path|way|image|rect|game|counter', 'meths':'__init__|update_img|update'}
-{'type':'umlshape', 'id':'Stats', 'x':341, 'y':191, 'width':74, 'height':157, 'attrs':'max_hp|health|stregth|level|xp', 'meths':'__init__'}
-{'type':'umlshape', 'id':'Tile', 'x':558, 'y':129, 'width':74, 'height':157, 'attrs':'pos|image|rect|game', 'meths':'__init__|update'}
-{'type':'umlshape', 'id':'Wall', 'x':450, 'y':129, 'width':74, 'height':157, 'attrs':'pos|image|rect|game', 'meths':'__init__|update'}
+{'type':'umlshape', 'id':'Game', 'x':894, 'y':84, 'width':122, 'height':285, 'attrs':'player_sprite|tiles|walls|npc|player|has_player|running|image_map|screen_size|screen', 'meths':'__init__|update|loading_screen|main'}
+{'type':'umlshape', 'id':'object', 'x':911, 'y':15, 'width':76, 'height':31, 'attrs':'', 'meths':''}
+{'type':'umlshape', 'id':'NPC', 'x':516, 'y':84, 'width':90, 'height':205, 'attrs':'pos|counter|image|image_path|rect|game', 'meths':'__init__|update_img|update'}
+{'type':'umlshape', 'id':'pygame.sprite.Sprite', 'x':541, 'y':383, 'width':230, 'height':31, 'attrs':'', 'meths':''}
+{'type':'umlshape', 'id':'Player', 'x':509, 'y':431, 'width':90, 'height':221, 'attrs':'image_path|way|image|rect|game|counter|last', 'meths':'__init__|update_img|update'}
+{'type':'umlshape', 'id':'Stats', 'x':723, 'y':464, 'width':90, 'height':173, 'attrs':'max_hp|current_hp|strength|agility|level|xp', 'meths':'__init__'}
+{'type':'umlshape', 'id':'Tile', 'x':655, 'y':83, 'width':74, 'height':157, 'attrs':'pos|image|rect|game', 'meths':'__init__|update'}
+{'type':'umlshape', 'id':'Wall', 'x':778, 'y':83, 'width':74, 'height':157, 'attrs':'pos|image|rect|game', 'meths':'__init__|update'}
 {'type':'edge', 'id':'Game_to_object', 'source':'Game', 'target':'object', 'uml_edge_type':'generalisation'}
 {'type':'edge', 'id':'Game_to_object', 'source':'Game', 'target':'object', 'uml_edge_type':'generalisation'}
 {'type':'edge', 'id':'NPC_to_pygame.sprite.Sprite', 'source':'NPC', 'target':'pygame.sprite.Sprite', 'uml_edge_type':'generalisation'}
