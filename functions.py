@@ -73,8 +73,10 @@ def npc_collide(game, npc):
 
     if dm == 0:
         if game.player.stats.current_hp > 1:
+            print(npc.name + 'HP: ' + (str)(npc.stats.current_hp))
             print(deal_damage(game.player, npc))
         if npc.stats.current_hp > 1:
+            print(npc.name + 'HP: ' + (str)(npc.stats.current_hp))
             print(deal_damage(npc, game.player))
 
     elif dm == 1 or dm == -1:
@@ -104,6 +106,7 @@ def deal_damage(attacker, attacked):
         if type(attacked) == 'Player':
             attacked.is_alive = False
         attacker.stats.current_hp = attacker.stats.max_hp
+        attacked.stats.current_hp = attacked.stats.max_hp
         attacked.kill()
     return return_string + bonus_string + xp_string
 
