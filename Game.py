@@ -37,7 +37,7 @@ class Game(object):
         self.player.update(dt, self.walls)
         for cell in pygame.sprite.spritecollide(self.player,
                                                 self.npc, False):
-            npc_collide(self)  # <-----Insert Collide-with-NPC commands here
+            npc_collide(self, False)  # <-Insert Collide-with-NPC commands here
         pygame.display.update()
 
     def loading_screen(self):
@@ -118,6 +118,8 @@ class Game(object):
         dt = dt / 1000.
         #Load some sweet, sweet credits
         #self.loading_screen()
+
+        npc_collide(self, True)
 
         while self.running:
         # Main Loop
