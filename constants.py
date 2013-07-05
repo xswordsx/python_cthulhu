@@ -1,4 +1,5 @@
 import pygame
+import Stats
 
 
 # Constants
@@ -12,8 +13,15 @@ BG_ALPHA = 90
 pygame.font.init()
 BIT_FONT = pygame.font.Font('misc/coders_crux.ttf', 24)
 
-MAX_LEVEL = 1
+MAX_MAP_LEVEL = 1
+# NPC Constants
 NPC_TYPES = 3
+NPC_NAME = ['', 'Dragon', 'Squid', 'Chicken']  # '' For easier indexing
+NPC_STATS = Stats.Stats(max_hp=65, strength=80, agility=60, level=1, xp=250)
+
+COMBAT_CONSTS = [0.5,   # Str -> Dmg
+                 0.33,  # Agi -> Armor
+                 5]     # lvl -> Dmg
 
 MEDIA_PATH = "data"
 PLAYER_PATH = "/player"
