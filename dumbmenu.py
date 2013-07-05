@@ -343,6 +343,10 @@ def dumbmenu(screen, menu, x_pos=100, y_pos=100, font=None,
                         event.key == pygame.K_RETURN:
                     exitMenu = True
 
+            if event.type == pygame.KEYUP:
+                if event.key == pygame.K_ESCAPE:
+                    return -1
+
     return cursorpos
 
 if __name__ == '__main__':
