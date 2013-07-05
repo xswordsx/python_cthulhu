@@ -7,7 +7,7 @@ from constants import MEDIA_PATH, BLOCK_SIZE, MOVEMENT
 # Player
 class Player(pygame.sprite.Sprite):
 
-    def __init__(self, position, game, stats=Stats.Stats(), *groups):
+    def __init__(self, position, game, stats, *groups):
 
         super(Player, self).__init__(*groups)
         self.image_path = MEDIA_PATH + '/player'
@@ -22,8 +22,12 @@ class Player(pygame.sprite.Sprite):
         self.game = game
         self.counter = 1
         self.last = None
-        self.stats = stats
+        if stats is None:
+            self.stats = Stats.Stats()
+        else:
+            self.stats = stats
         self.is_alive = True
+        self.name = "Cthulhu"
 
     def update_img(self, vector):
 

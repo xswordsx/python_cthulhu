@@ -37,7 +37,6 @@ class Game(object):
         self.player.update(dt, self.walls)
         for cell in pygame.sprite.spritecollide(self.player,
                                                 self.npc, False):
-            print(cell.name)
             npc_collide(self, cell)  # <-Insert Collide-with-NPC commands here
         pygame.display.update()
 

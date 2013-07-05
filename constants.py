@@ -18,6 +18,7 @@ MAX_MAP_LEVEL = 1
 NPC_TYPES = 3
 NPC_NAME = ['', 'Dragon', 'Squid', 'Chicken']  # '' For easier indexing
 NPC_STATS = Stats.Stats(max_hp=65, strength=80, agility=60, level=1, xp=250)
+PLAYER_STATS = Stats.Stats(100, strength=100, agility=100, level=1, xp=0)
 
 COMBAT_CONSTS = [0.5,   # Str -> Dmg
                  0.33,  # Agi -> Armor

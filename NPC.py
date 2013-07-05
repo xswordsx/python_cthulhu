@@ -20,7 +20,7 @@ class NPC(pygame.sprite.Sprite):
         if stats is None:
             self.stats = Stats.Stats()
         else:
-            self.stats = Stats.Stats(stats)  # Make a copy of the object
+            self.stats = stats  # Make a copy of the object
 
         self.rect = self.image.get_rect()
         self.rect.topleft = self.pos

@@ -2,6 +2,7 @@ import pygame
 import dumbmenu as menu
 
 from constants import *
+from constants import COMBAT_CONSTS as CC
 
 from Tile import Tile
 from Wall import Wall
@@ -45,7 +46,7 @@ def generate_map(game):
 
             elif pixel == PLAYER:
                 if game.has_player is False:
-                    game.player = Player(pos, game, game.player_sprite)
+                    game.player = Player(pos, game, PLAYER_STATS)
                     game.has_player = True
                 else:
                     print(SPAWN_POINT_EXISTS)
@@ -71,6 +72,7 @@ def npc_collide(game, npc):
                        'misc/coders_crux.ttf', 48, 2, BLACK, BLACK)
 
     if dm == 0:
+        print(npc.stats)
         print(deal_damage(game.player, npc))
         print(deal_damage(npc, game.player))
 
@@ -87,20 +89,21 @@ def deal_damage(attacker, attacked):
     true_dmg = dmg - armor
 
     return_string = '%s attacked %s for %d damage.' % \
-                    attacker.name, attacked.name, true_dmg
+                    (attacker.name, attacked.name, true_dmg)
     bonus_string = ''
     attacked.stats.current_hp -= true_dmg
 
-    if attacked.current_hp <= 0:
+    if attacked.stats.current_hp <= 0:
         bonus_string = '\n%s has been slain.' % attacked.name
         # Suck up the XP
-        attacker.xp += attacked.xp
+        attacker.stats.xp += attacked.stats.xp
         if type(attacked) == 'Player':
             attacked.is_alive = False
     return return_string + bonus_string
 
-get_damage = lambda x: (int)(round(x.stats.strength * COMBAT_CONSTS[0] +
-                                   x.stats.level * COMABT_CONST[2]))
+
+get_damage = lambda x: (int)(round(x.stats.strength * CC[0] +
+                                   x.stats.level * CC[2]))
 
 
-get_armor = lambda x: (int)(round(x.stats.agility * COMBAT_CONSTS[1]))
+get_armor = lambda x: (int)(round(x.stats.agility * CC[1]))
