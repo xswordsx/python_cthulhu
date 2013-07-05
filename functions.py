@@ -50,11 +50,16 @@ def generate_map(game):
                     game.has_player = True
                 else:
                     print(SPAWN_POINT_EXISTS)
-                    break
+                    game.has_player = False
+                    return -1
 
                 t = Tile(pos[0], pos[1], tile_grass, game)
             else:
                 t = Tile(pos[0], pos[1], tile_grass, game)
+    if game.has_player:
+        return 1
+    else:
+        return -1
 
 
 def npc_collide(game, npc):
@@ -91,6 +96,8 @@ def deal_damage(attacker, attacked):
     dmg = get_damage(attacker)
     armor = get_armor(attacked)
     true_dmg = dmg - armor
+    if true_dmg < 1:
+        true_dmg = 0
 
     return_string = '%s attacked %s for %d damage.' % \
                     (attacker.name, attacked.name, true_dmg)

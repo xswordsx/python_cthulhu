@@ -111,7 +111,7 @@ class Game(object):
         if self.has_player is True:
             self.running = True
         else:
-            print(NO_PLAYER)
+            Exception(NO_PLAYER)
 
         clock = pygame.time.Clock()
         dt = clock.tick(30)
