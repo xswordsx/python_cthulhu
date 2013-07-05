@@ -72,13 +72,15 @@ def npc_collide(game, npc):
                        'misc/coders_crux.ttf', 48, 2, BLACK, BLACK)
 
     if dm == 0:
-        print(npc.stats)
-        print(deal_damage(game.player, npc))
-        print(deal_damage(npc, game.player))
+        if game.player.stats.current_hp > 1:
+            print(deal_damage(game.player, npc))
+        if npc.stats.current_hp > 1:
+            print(deal_damage(npc, game.player))
 
     elif dm == 1 or dm == -1:
       # game.running = False  # Python-friendly
         game.player.rect = game.player.last
+        npc.stats.current_hp = npc.stats.max_hp
     game.update()  # Kills an annoying 'glitch' effect
 
 
@@ -91,15 +93,19 @@ def deal_damage(attacker, attacked):
     return_string = '%s attacked %s for %d damage.' % \
                     (attacker.name, attacked.name, true_dmg)
     bonus_string = ''
+    xp_string = ''
     attacked.stats.current_hp -= true_dmg
 
     if attacked.stats.current_hp <= 0:
         bonus_string = '\n%s has been slain.' % attacked.name
+        xp_string = '\n You received %d XP.' % attacked.stats.xp
         # Suck up the XP
         attacker.stats.xp += attacked.stats.xp
         if type(attacked) == 'Player':
             attacked.is_alive = False
-    return return_string + bonus_string
+        attacker.stats.current_hp = attacker.stats.max_hp
+        attacked.kill()
+    return return_string + bonus_string + xp_string
 
 
 get_damage = lambda x: (int)(round(x.stats.strength * CC[0] +
