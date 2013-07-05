@@ -21,8 +21,8 @@ class Game(object):
         self.image_map = pygame.image.load(MEDIA_PATH + "/level/01.bmp")
 
         self.screen_size = self.image_map.get_size()
-        self.screen_size = (self.screen_size[0] * BLOCK_SIZE,
-                            self.screen_size[1] * BLOCK_SIZE)
+        self.screen_size = ((self.screen_size[0] + 2) * BLOCK_SIZE,
+                            (self.screen_size[1] + 2) * BLOCK_SIZE)
 
         self.screen = pygame.display.set_mode(self.screen_size)
                                 # Add pygame.NOFRAME to top statement
@@ -118,8 +118,8 @@ class Game(object):
         clock = pygame.time.Clock()
         dt = clock.tick(30)
         dt = dt / 1000.
-
-        self.loading_screen()
+        #Load some sweet, sweet credits
+        # self.loading_screen()
 
         while self.running:
         # Main Loop
