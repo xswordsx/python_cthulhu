@@ -22,7 +22,7 @@ class Player(pygame.sprite.Sprite):
         self.game = game
         self.counter = 1
         self.last = None
-        if stats is None:
+        if stats.__class__ is not type(Stats):
             self.stats = Stats.Stats()
         else:
             self.stats = stats

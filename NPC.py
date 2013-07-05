@@ -17,7 +17,7 @@ class NPC(pygame.sprite.Sprite):
         # self.image_path looks like: /data/npc/<monster type>/
         self.name = NPC_NAME[self.type]
         self.update_img()
-        if stats is None:
+        if stats.__class__ is not type(Stats):
             self.stats = Stats.Stats()
         else:
             self.stats = stats  # Make a copy of the object
