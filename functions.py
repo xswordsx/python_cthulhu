@@ -55,18 +55,21 @@ def generate_map(game):
                 t = Tile(pos[0], pos[1], tile_grass, game)
 
 
-def npc_collide(game):
+def npc_collide(game, prerender):
 
     text_bg = pygame.Surface((game.screen_size[0], TEXT_BG_HEIGHT))
     text_bg.fill(BG_COLOR)
     text_bg.set_alpha(BG_ALPHA)
 
     menu_list = ['Attack', 'Flee in Terror']
-    game.screen.blit(text_bg, (0, game.screen_size[1] - TEXT_BG_HEIGHT))
+    # game.screen.blit(text_bg, (0, game.screen_size[1] - TEXT_BG_HEIGHT))
 
-    dm = menu.dumbmenu(game.screen, menu_list, 60,
-                       game.screen_size[1] - TEXT_BG_HEIGHT,
-                       'misc/coders_crux.ttf', 48, 2, BLACK, BLACK)
+    if prerender is False:
 
-    if dm == 1:
-        game.running = False  # Python-friendly
+        dm = menu.dumbmenu(game.screen, menu_list, 60,
+                           game.screen_size[1] - TEXT_BG_HEIGHT,
+                           'misc/coders_crux.ttf', 48, 2, BLACK, BLACK)
+        if dm == 1 or dm == -1:
+          # game.running = False  # Python-friendly
+            game.player.rect = game.player.last
+        game.update()  # Kills an annoying 'glitch' effect
