@@ -1,3 +1,4 @@
+import Stats
 import pygame
 import constants
 from constants import MEDIA_PATH, BLOCK_SIZE, MOVEMENT
@@ -6,7 +7,7 @@ from constants import MEDIA_PATH, BLOCK_SIZE, MOVEMENT
 # Player
 class Player(pygame.sprite.Sprite):
 
-    def __init__(self, position, game, *groups):
+    def __init__(self, position, game, stats=Stats.Stats(), *groups):
 
         super(Player, self).__init__(*groups)
         self.image_path = MEDIA_PATH + '/player'
@@ -20,6 +21,7 @@ class Player(pygame.sprite.Sprite):
                                      (BLOCK_SIZE - 2, BLOCK_SIZE - 2))
         self.game = game
         self.counter = 1
+        self.last = None
 
     def update_img(self, vector):
 
@@ -40,7 +42,7 @@ class Player(pygame.sprite.Sprite):
 
     def update(self, dt, game):
 
-        last = self.rect.copy()
+        self.last = self.rect.copy()
 
         key = pygame.key.get_pressed()
 
@@ -62,5 +64,5 @@ class Player(pygame.sprite.Sprite):
         # dt disabled due to unknown bug
 
         for cell in pygame.sprite.spritecollide(self, game, False):
-            self.rect = last
+            self.rect = self.last
         self.game.screen.blit(self.image, (self.rect.x, self.rect.y))
