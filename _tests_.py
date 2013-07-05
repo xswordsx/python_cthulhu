@@ -30,5 +30,10 @@ class TestEVERYTHING(unittest.TestCase):
         self.game = Game('/tests/' + self.map_list[3])
         self.assertEqual(generate_map(self.game), -1)
 
+    def test_map_non_existant(self):
+        self.map = '/not_really_there/007.bmp'
+        self.game = Game(self.map)
+        self.AssertionError("Couldn't open " + MEDIA_PATH + self.map)
+
 if __name__ == '__main__':
     unittest.main()
