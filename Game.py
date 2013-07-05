@@ -5,7 +5,7 @@ from constants import *
 
 class Game(object):
 
-    def __init__(self):
+    def __init__(self, lvl_path):
 
         self.player_sprite = pygame.sprite.Group()
 
@@ -17,7 +17,7 @@ class Game(object):
         self.has_player = False
         self.running = False
 
-        self.image_map = pygame.image.load(MEDIA_PATH + "/level/01.bmp")
+        self.image_map = pygame.image.load(MEDIA_PATH + "/level/" + lvl_path)
 
         self.screen_size = self.image_map.get_size()
         self.screen_size = ((self.screen_size[0] + 2) * BLOCK_SIZE,
@@ -37,7 +37,8 @@ class Game(object):
         self.player.update(dt, self.walls)
         for cell in pygame.sprite.spritecollide(self.player,
                                                 self.npc, False):
-            npc_collide(self, False)  # <-Insert Collide-with-NPC commands here
+            print(cell.name)
+            npc_collide(self, cell)  # <-Insert Collide-with-NPC commands here
         pygame.display.update()
 
     def loading_screen(self):
@@ -117,9 +118,7 @@ class Game(object):
         dt = clock.tick(30)
         dt = dt / 1000.
         #Load some sweet, sweet credits
-        self.loading_screen()
-
-        npc_collide(self, True)
+        #self.loading_screen()
 
         while self.running:
         # Main Loop

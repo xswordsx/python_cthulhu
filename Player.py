@@ -22,6 +22,8 @@ class Player(pygame.sprite.Sprite):
         self.game = game
         self.counter = 1
         self.last = None
+        self.stats = stats
+        self.is_alive = True
 
     def update_img(self, vector):
 

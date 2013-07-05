@@ -15,6 +15,5 @@ from Wall import *
 os.environ['SDL_VIDEO_CENTERED'] = '1'
 
 # PLAY THA GAME
-game = Game()
-print ("Game is closed with 'Esc'")
+game = Game('2.bmp')
 game.main()

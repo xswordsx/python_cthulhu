@@ -5,17 +5,22 @@ from constants import *
 
 class NPC(pygame.sprite.Sprite):
 
-    def __init__(self, x, y, game):
+    def __init__(self, x, y, stats, game):
 
         pygame.sprite.Sprite.__init__(self)
 
         self.pos = [x, y]
         self.counter = 0
         self.image = None  # Not sure if I should init it
-        self.image_path = MEDIA_PATH + '/npc/' + \
-            (str)(random.randint(1, NPC_TYPES)) + '/'
-        self.update_img()
+        self.type = (random.randint(1, NPC_TYPES))
+        self.image_path = MEDIA_PATH + '/npc/' + (str)(self.type) + '/'
         # self.image_path looks like: /data/npc/<monster type>/
+        self.name = NPC_NAME[self.type]
+        self.update_img()
+        if stats is None:
+            self.stats = Stats.Stats()
+        else:
+            self.stats = Stats.Stats(stats)  # Make a copy of the object
 
         self.rect = self.image.get_rect()
         self.rect.topleft = self.pos
