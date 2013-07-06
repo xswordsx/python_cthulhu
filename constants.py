@@ -10,6 +10,8 @@ BLOCK_SIZE = 32
 TEXT_BG_HEIGHT = 120
 BG_ALPHA = 90
 
+PROJECT_PATH = 'D:\\Python-Project\\python_cthulhu\\misc\\'
+
 pygame.font.init()
 BIT_FONT = pygame.font.Font('misc/coders_crux.ttf', 24)
 

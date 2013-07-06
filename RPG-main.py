@@ -15,5 +15,5 @@ from Wall import *
 os.environ['SDL_VIDEO_CENTERED'] = '1'
 
 # PLAY THA GAME
-game = Game('2.bmp')
+game = Game('2.bmp', False)
 game.main()

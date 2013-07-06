@@ -5,7 +5,7 @@ from constants import *
 
 class Game(object):
 
-    def __init__(self, lvl_path):
+    def __init__(self, lvl_path, render_credits=True):
 
         self.player_sprite = pygame.sprite.Group()
 
@@ -13,6 +13,7 @@ class Game(object):
         self.walls = pygame.sprite.Group()
         self.npc = pygame.sprite.Group()
         self.player = None
+        self.credits = render_credits
 
         self.has_player = False
         self.running = False
@@ -55,7 +56,6 @@ class Game(object):
 
         for i in range(40):
             clock.tick(tick_time)
-
             img1.set_alpha(i)
 
             self.screen.blit(img1, (190, -10))
@@ -107,6 +107,10 @@ class Game(object):
     def main(self):
         # Science starts right about here
         pygame.init()
+        pygame.mixer.init(44100, -16, 300, 1024)
+        self.bg_music = pygame.mixer.Channel(1)
+        pygame.mixer.set_reserved(1)
+        pygame.mixer.music.load(PYTHON_PROJECT + 'music.wav')
 
         if self.has_player is True:
             self.running = True
@@ -116,8 +120,13 @@ class Game(object):
         clock = pygame.time.Clock()
         dt = clock.tick(30)
         dt = dt / 1000.
-        #Load some sweet, sweet credits
-        self.loading_screen()
+
+        if self.credits:
+            #Load some sweet, sweet credits
+            self.loading_screen()
+
+        # Add music
+        pygame.mixer.music.play(-1)
 
         while self.running:
         # Main Loop
